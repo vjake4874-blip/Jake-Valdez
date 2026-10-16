@@ -1,0 +1,186 @@
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #eaf4ff, #dce8ff, #fff0f2);
+    color: #222;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(135deg, #071b69, #1769aa);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    border-bottom: 5px solid #ed1c24;
+}
+
+header h1 {
+    font-size: 32px;
+}
+
+nav {
+    background: #c90024;
+    padding: 14px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #bde8ff;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 15px;
+}
+
+.profile,
+section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 22px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px #0002;
+}
+
+.profile {
+    text-align: center;
+    border-top: 6px solid #ed1c24;
+}
+
+.profile img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 25%;
+    border: 5px solid #071b69;
+    margin-bottom: 12px;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 12px auto;
+    max-width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    background: #071b69;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #c90024;
+}
+
+h2 {
+    color: #071b69;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #ed1c24;
+    padding-bottom: 6px;
+}
+
+.card {
+    background: #eef4ff;
+    border-left: 5px solid #c90024;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 8px;
+}
+
+.card h3 {
+    color: #c90024;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #071b69;
+    font-weight: bold;
+}
+
+.contact p {
+    margin: 8px 0;
+    overflow-wrap: anywhere;
+}
+
+.contact a {
+    color: #071b69;
+}
+
+#datetime {
+    background: #071b69;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    border: 2px solid #ed1c24;
+}
+
+#datetime h2 {
+    color: white;
+    border: none;
+}
+
+#clock {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+footer {
+    background: #071b69;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-top: 5px solid #ed1c24;
+}
+
+/* Mobile responsive design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 26px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 8px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    .profile,
+    section {
+        padding: 20px 15px;
+    }
+
+    #clock {
+        font-size: 21px;
+    }
+}
+
+
