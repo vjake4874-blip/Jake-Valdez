@@ -1,0 +1,104 @@
+function updateDateTime() {
+    const now = new Date();
+
+    document.getElementById("date").textContent =
+        now.toLocaleDateString("en-PH", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
+
+    document.getElementById("clock").textContent =
+        now.toLocaleTimeString("en-PH", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true
+        });
+}
+
+updateDateTime();
+setInterval(updateDateTime, 1000);
+
+
+const photoUpload = document.getElementById("photoUpload");
+const myPhoto = document.getElementById("myPhoto");
+const resetPhotoButton = document.getElementById("resetPhoto");
+
+const defaultPhoto = "1000074800.png";
+let currentPhotoURL = null;
+
+photoUpload.addEventListener("change", function () {
+    const file = this.files[0];
+
+    if (file && file.type.startsWith("image/")) {
+        if (currentPhotoURL) {
+            URL.revokeObjectURL(currentPhotoURL);
+        }
+
+        currentPhotoURL = URL.createObjectURL(file);
+        myPhoto.src = currentPhotoURL;
+    }
+});
+
+resetPhotoButton.addEventListener("click", function () {
+    if (currentPhotoURL) {
+        URL.revokeObjectURL(currentPhotoURL);
+        currentPhotoURL = null;
+    }
+
+    myPhoto.src = defaultPhoto;
+    photoUpload.value = "";
+});
+
+async function loadProjects() {
+    const projectList = document.getElementById("projectList");
+
+    try {
+        const response = await fetch("projects.json");
+
+        if (!response.ok) {
+            throw new Error("Unable to load projects.");
+        }
+
+        const projects = await response.json();
+
+        projectList.replaceChildren();
+
+        projects.forEach(function (project) {
+            const card = document.createElement("div");
+            card.className = "card";
+
+            const title = document.createElement("h3");
+            title.textContent = project.title;
+
+            const description = document.createElement("p");
+            description.textContent = project.description;
+
+            card.appendChild(title);
+            card.appendChild(description);
+
+            if (project.link) {
+                const link = document.createElement("a");
+                link.href = project.link;
+                link.textContent = "View Project";
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+
+                card.appendChild(link);
+            }
+
+            projectList.appendChild(card);
+        });
+
+    } catch (error) {
+        projectList.textContent =
+            "Unable to load projects. Please open this website using Live Server.";
+        console.error(error);
+    }
+}
+
+loadProjects();
+
+
