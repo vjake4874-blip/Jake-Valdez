@@ -1,0 +1,20 @@
+
+[
+    {
+        "title": "Personal Portfolio Website",
+        "description": "A personal website that introduces me, my skills, talents, education, and contact information.",
+        "link": ""
+    },
+    {
+        "title": "HTML and CSS Practice",
+        "description": "A practice project for learning website structure, styling, colors, and responsive design.",
+        "link": ""
+    },
+    {
+        "title": "JavaScript Date and Time",
+        "description": "A project feature that displays the current date and time and updates every second.",
+        "link": ""
+    }
+]
+
+
